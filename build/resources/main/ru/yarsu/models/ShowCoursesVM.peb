@@ -1,0 +1,26 @@
+{% extends "./layout.peb" %}
+{% block title %} Список курсов {% endblock %}
+
+{% block content %}
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell">
+
+            <h1> Список курсов: </h1>
+            {% if model.courses is empty %}
+                <div class="callout warning">
+                     Нет ни одного курса!
+                </div>
+
+            {% else %}
+                <ul>
+                {% for course in model.courses %}
+                    <li> <a href="course_stats/{{course.id}}"> {{ course.courseName}}</a> </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
